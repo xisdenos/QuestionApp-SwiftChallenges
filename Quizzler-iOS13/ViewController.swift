@@ -17,14 +17,28 @@ class ViewController: UIViewController {
     @IBOutlet weak var falseButton: UIButton!
     @IBOutlet weak var trueButton: UIButton!
     
+    let quiz = [
+        Question(text: "Strict e Classes são a mesma coisa?", answer: "False"),
+        Question(text: "Ronaldinho jogou pela selecao brasileira?", answer: "True"),
+        Question(text: "Brasil tem 6 copas do mundo?", answer: "False")
+        "Strict e Classes são a mesma coisa?",
+        "Ronaldinho jogou pela selecao brasileira?",
+        "Brasil tem 6 copas do mundo?"]
+    
+    var questionN = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        textLabel.text = "Strict e Classes são a mesma coisa?"
+        textLabel.text = quiz[questionN]
     }
 
     @IBAction func answerButton(_ sender: UIButton) {
-        
+        updateUi()
+    }
+    
+    func updateUi() {
+        questionN += 1
+        textLabel.text = quiz[questionN]
     }
     
 }

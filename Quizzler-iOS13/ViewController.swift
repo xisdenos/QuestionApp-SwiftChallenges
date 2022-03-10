@@ -20,25 +20,33 @@ class ViewController: UIViewController {
     let quiz = [
         Question(text: "Strict e Classes são a mesma coisa?", answer: "False"),
         Question(text: "Ronaldinho jogou pela selecao brasileira?", answer: "True"),
-        Question(text: "Brasil tem 6 copas do mundo?", answer: "False")
-        "Strict e Classes são a mesma coisa?",
-        "Ronaldinho jogou pela selecao brasileira?",
-        "Brasil tem 6 copas do mundo?"]
+        Question(text: "Brasil tem 6 copas do mundo?", answer: "False") ]
+        
     
     var questionN = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        textLabel.text = quiz[questionN]
+        updateUi()
     }
 
     @IBAction func answerButton(_ sender: UIButton) {
+        let userAnswer = sender.currentTitle
+        let dataAnswer = quiz[questionN].answer
+        
+        if userAnswer == dataAnswer {
+            print("resposta correta")
+            questionN += 1
+        } else {
+            print("resposta incorreta")
+        }
+        
         updateUi()
     }
     
     func updateUi() {
-        questionN += 1
-        textLabel.text = quiz[questionN]
+        
+        textLabel.text = quiz[questionN].text
     }
     
 }

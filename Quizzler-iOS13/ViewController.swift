@@ -10,11 +10,22 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    
+    @IBOutlet weak var textLabel: UILabel!
+    @IBOutlet weak var progressBar: UIProgressView!
+    
+    @IBOutlet weak var falseButton: UIButton!
+    @IBOutlet weak var trueButton: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        textLabel.text = "Strict e Classes são a mesma coisa?"
     }
 
-
+    @IBAction func answerButton(_ sender: UIButton) {
+        
+    }
+    
 }
 

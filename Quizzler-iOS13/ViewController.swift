@@ -18,9 +18,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var trueButton: UIButton!
     
     let quiz = [
-        Question(text: "Strict e Classes são a mesma coisa?", answer: "False"),
-        Question(text: "Ronaldinho jogou pela selecao brasileira?", answer: "True"),
-        Question(text: "Brasil tem 6 copas do mundo?", answer: "False") ]
+        Question(q: "Strict e Classes são a mesma coisa?", a: "False"),
+        Question(q: "Ronaldinho jogou pela selecao brasileira?", a: "True"),
+        Question(q: "Brasil tem 6 copas do mundo?", a: "False") ]
         
     
     var questionN = 0
@@ -36,17 +36,22 @@ class ViewController: UIViewController {
         
         if userAnswer == dataAnswer {
             print("resposta correta")
+            sender.backgroundColor = UIColor.green
             questionN += 1
         } else {
             print("resposta incorreta")
+            sender.backgroundColor = UIColor.red
         }
         
-        updateUi()
+        Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(updateUi), userInfo: nil, repeats: false)
+    
     }
     
-    func updateUi() {
+    @objc func updateUi() {
         
         textLabel.text = quiz[questionN].text
+        trueButton.backgroundColor = UIColor.clear
+        falseButton.backgroundColor = UIColor.clear
     }
     
 }

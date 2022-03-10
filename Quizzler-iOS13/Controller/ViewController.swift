@@ -17,12 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var falseButton: UIButton!
     @IBOutlet weak var trueButton: UIButton!
     
-    let quiz = [
-        Question(q: "Strict e Classes são a mesma coisa?", a: "False"),
-        Question(q: "Ronaldinho jogou pela selecao brasileira?", a: "True"),
-        Question(q: "Brasil tem 6 copas do mundo?", a: "False") ]
-        
-    
+    var quizBrain = QuizBrain()
     var questionN = 0
     
     override func viewDidLoad() {
@@ -31,10 +26,9 @@ class ViewController: UIViewController {
     }
 
     @IBAction func answerButton(_ sender: UIButton) {
-        let userAnswer = sender.currentTitle
-        let dataAnswer = quiz[questionN].answer
+        let userAnswer = sender.currentTitle!
         
-        if userAnswer == dataAnswer {
+        if quizBrain.checkAnswer(userAnswer) {
             print("resposta correta")
             sender.backgroundColor = UIColor.green
             questionN += 1
@@ -49,9 +43,11 @@ class ViewController: UIViewController {
     
     @objc func updateUi() {
         
-        textLabel.text = quiz[questionN].text
+        textLabel.text = quizBrain.quiz[questionN].text
         trueButton.backgroundColor = UIColor.clear
         falseButton.backgroundColor = UIColor.clear
+        
+        progressBar.progress = Float(questionN + 1) / Float(quizBrain.quiz.count)
     }
     
 }

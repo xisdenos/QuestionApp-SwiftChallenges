@@ -18,7 +18,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var trueButton: UIButton!
     
     var quizBrain = QuizBrain()
-    var questionN = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,11 +30,13 @@ class ViewController: UIViewController {
         if quizBrain.checkAnswer(userAnswer) {
             print("resposta correta")
             sender.backgroundColor = UIColor.green
-            questionN += 1
+        
         } else {
             print("resposta incorreta")
             sender.backgroundColor = UIColor.red
         }
+        
+        quizBrain.nextQuestion()
         
         Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(updateUi), userInfo: nil, repeats: false)
     
@@ -43,11 +44,12 @@ class ViewController: UIViewController {
     
     @objc func updateUi() {
         
-        textLabel.text = quizBrain.quiz[questionN].text
+        textLabel.text = quizBrain.getQuestionText()
+        
         trueButton.backgroundColor = UIColor.clear
         falseButton.backgroundColor = UIColor.clear
         
-        progressBar.progress = Float(questionN + 1) / Float(quizBrain.quiz.count)
+        progressBar.progress = quizBrain.getProgress()
     }
     
 }

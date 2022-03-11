@@ -25,8 +25,14 @@
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fal-oS-tEg">
                                 <rect key="frame" x="40" y="52" width="374" height="818"/>
                                 <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ETq-kI-WTF">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="87.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="1000" text="Question Text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rSI-li-mhO">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="618"/>
+                                        <rect key="frame" x="0.0" y="97.5" width="374" height="520.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -87,6 +93,7 @@
                     <connections>
                         <outlet property="falseButton" destination="tbn-vQ-GyC" id="6g3-Rb-RXJ"/>
                         <outlet property="progressBar" destination="TXm-qh-7Xg" id="lnx-mr-ttZ"/>
+                        <outlet property="scoreLabel" destination="ETq-kI-WTF" id="kiS-gI-cVk"/>
                         <outlet property="textLabel" destination="rSI-li-mhO" id="eq7-c4-4RD"/>
                         <outlet property="trueButton" destination="oVw-Hl-IRe" id="7V0-Gu-eH9"/>
                     </connections>

@@ -16,9 +16,11 @@ let quiz = [
     Question(q: "Brasil tem 6 copas do mundo?", a: "False") ]
     
     var questionNumber = 0
+    var scoreNumber = 0
     
     func checkAnswer(_ userAnswer: String) -> Bool {
         if userAnswer == quiz[questionNumber].answer {
+            scoreNumber += 1
             return true
         } else {
             return false
@@ -32,6 +34,10 @@ let quiz = [
     func getProgress() -> Float {
         let progress = Float(questionNumber) / Float(quiz.count)
         return progress
+    }
+    
+    func getScore() -> Int {
+        return scoreNumber
     }
     
     mutating func nextQuestion() {
